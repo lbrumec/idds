@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Institute for Democracy and Digital Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue-900: #142f4f;
+        --blue-800: #1e3f6b;
+        --blue-600: #2f5b8f;
+        --gold-600: #b9913a;
+        --gold-500: #c9a14a;
+        --gold-300: #e2c47c;
+        --paper: #f7f3ee;
+        --ink: #1a1c20;
+        --muted: #5c6470;
+        --shadow: 0 18px 60px rgba(20, 47, 79, 0.16);
+        --header-height: 84px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", system-ui, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #ffffff 0%, var(--paper) 55%, #efe7db 100%);
+        padding-top: var(--header-height);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .page::before,
+      .page::after {
+        content: "";
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(185, 145, 58, 0.25), transparent 60%);
+        top: -180px;
+        right: -220px;
+        z-index: 0;
+      }
+
+      .page::after {
+        background: radial-gradient(circle, rgba(20, 47, 79, 0.18), transparent 60%);
+        top: 55%;
+        left: -260px;
+      }
+
+      .container {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        backdrop-filter: blur(14px);
+        background: rgba(247, 243, 238, 0.86);
+        border-bottom: 1px solid rgba(20, 47, 79, 0.08);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: "Fraunces", serif;
+        color: var(--blue-900);
+      }
+
+      .logo {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        border: 2px solid var(--blue-900);
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #fff, #f1e4c8);
+        box-shadow: 0 10px 24px rgba(20, 47, 79, 0.18);
+      }
+
+      .logo span {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--gold-600);
+        letter-spacing: 0.08em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-weight: 600;
+        color: var(--blue-900);
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 6px;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--gold-600);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .cta {
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: var(--blue-900);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 10px 20px rgba(20, 47, 79, 0.18);
+      }
+
+      .hero {
+        padding: 90px 0 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 36px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+        color: var(--gold-600);
+        font-weight: 700;
+      }
+
+      h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.4rem, 2rem + 2vw, 3.6rem);
+        margin: 16px 0 20px;
+        color: var(--blue-900);
+      }
+
+      .hero-title {
+        font-family: "Manrope", system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .ghost {
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(20, 47, 79, 0.2);
+        font-weight: 600;
+        color: var(--blue-900);
+      }
+
+      .hero-card {
+        background: #fff;
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(20, 47, 79, 0.08);
+      }
+
+      .hero-card .stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(20, 47, 79, 0.08);
+      }
+
+      .hero-card .stat:last-child {
+        border-bottom: none;
+      }
+
+      .stat h3 {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        color: var(--blue-900);
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-title {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+        color: var(--blue-900);
+        margin-bottom: 18px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(20, 47, 79, 0.12);
+        border: 1px solid rgba(20, 47, 79, 0.08);
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(185, 145, 58, 0.15);
+        color: var(--gold-600);
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .team-card {
+        display: grid;
+        gap: 14px;
+      }
+
+      .avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        letter-spacing: 0.05em;
+      }
+
+      .contact {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: center;
+      }
+
+      form {
+        display: grid;
+        gap: 16px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(20, 47, 79, 0.2);
+        font-family: inherit;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        animation: reveal 0.8s ease forwards;
+      }
+
+      .reveal.delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .reveal.delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes reveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+
+        .hero {
+          padding: 60px 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="container nav">
+          <div class="brand">
+            <div class="logo" aria-label="Institute logo placeholder">
+              <span>ID</span>
+            </div>
+            <div>
+              <div style="font-size: 0.9rem; letter-spacing: 0.16em; text-transform: uppercase">
+                Institute for
+              </div>
+              <div style="font-weight: 700">Democracy and Digital Society</div>
+            </div>
+          </div>
+          <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+            <a class="cta" href="#contact">Work With Us</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container">
+        <section id="home" class="hero">
+          <div class="reveal">
+            <div class="eyebrow">Vienna • Evidence-driven policy</div>
+            <h1 class="hero-title">Building democratic resilience for the digital age.</h1>
+            <p class="lead">
+              The Institute for Democracy and Digital Society advances research, training, and civic innovation at
+              the intersection of governance, technology, and human rights. We partner with public institutions,
+              civil society, and industry to shape inclusive digital futures.
+            </p>
+            <div class="hero-actions">
+              <a class="cta" href="#about">Explore Our Work</a>
+              <a class="ghost" href="#contact">Request a Briefing</a>
+            </div>
+          </div>
+          <div class="hero-card reveal delay-1">
+            <div class="pill">2026 priorities</div>
+            <div class="stat">
+              <div>
+                <strong>Digital Rights Lab</strong>
+                <div class="lead" style="font-size: 0.9rem">Algorithmic accountability &amp; civic audits.</div>
+              </div>
+              <h3>01</h3>
+            </div>
+            <div class="stat">
+              <div>
+                <strong>Democracy Observatory</strong>
+                <div class="lead" style="font-size: 0.9rem">Monitoring participation in digital spaces.</div>
+              </div>
+              <h3>02</h3>
+            </div>
+            <div class="stat">
+              <div>
+                <strong>Public Innovation Studio</strong>
+                <div class="lead" style="font-size: 0.9rem">Co-designing tools for civic trust.</div>
+              </div>
+              <h3>03</h3>
+            </div>
+          </div>
+        </section>
+
+        <section id="about">
+          <div class="reveal">
+            <div class="pill">About</div>
+            <h2 class="section-title">A research institute grounded in democracy, guided by digital realities.</h2>
+            <p class="lead">
+              We conduct applied research, advise policymakers, and build capacity for democratic institutions facing
+              rapid technological change. Our work spans digital governance, platform accountability, AI ethics, and
+              participatory policy design.
+            </p>
+          </div>
+          <div class="grid reveal delay-1" style="margin-top: 28px">
+            <div class="card">
+              <h3>Research &amp; Foresight</h3>
+              <p class="lead">
+                Scenario planning, impact evaluations, and data-driven insights to anticipate emerging challenges.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Policy Design</h3>
+              <p class="lead">
+                Translating evidence into governance frameworks that uphold rights, transparency, and accountability.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Civic Capacity</h3>
+              <p class="lead">
+                Trainings, toolkits, and public engagement initiatives that strengthen democratic participation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="team">
+          <div class="reveal">
+            <div class="pill">Team</div>
+            <h2 class="section-title">Multidisciplinary leadership at the heart of every program.</h2>
+            <p class="lead">
+              Our team blends policy expertise, data science, and community practice to deliver measurable outcomes
+              for partners across Europe and beyond.
+            </p>
+          </div>
+          <div class="grid reveal delay-1" style="margin-top: 28px">
+            <div class="card team-card">
+              <div class="avatar">AK</div>
+              <div>
+                <strong>Dr. Ana Kovacs</strong>
+                <div class="lead" style="font-size: 0.9rem">Executive Director</div>
+              </div>
+              <p class="lead">Democratic governance, institutional trust, and public sector innovation.</p>
+            </div>
+            <div class="card team-card">
+              <div class="avatar">MS</div>
+              <div>
+                <strong>Marcus Stein</strong>
+                <div class="lead" style="font-size: 0.9rem">Head of Research</div>
+              </div>
+              <p class="lead">Algorithmic accountability, human rights, and AI policy.</p>
+            </div>
+            <div class="card team-card">
+              <div class="avatar">IB</div>
+              <div>
+                <strong>Isabella Bern</strong>
+                <div class="lead" style="font-size: 0.9rem">Civic Innovation Lead</div>
+              </div>
+              <p class="lead">Participatory design, civic tech, and digital inclusion.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="contact">
+            <div class="reveal">
+              <div class="pill">Contact</div>
+              <h2 class="section-title">Let’s build democratic resilience together.</h2>
+              <p class="lead">
+                Based in Vienna, we collaborate internationally. Reach out for partnership inquiries, briefings, or
+                speaking engagements.
+              </p>
+              <div class="card" style="margin-top: 24px">
+                <strong>Institute for Democracy and Digital Society</strong>
+                <p class="lead" style="margin: 10px 0 0">Schottenring 16, 1010 Vienna</p>
+                <p class="lead" style="margin: 6px 0 0">contact@idds.institute</p>
+                <p class="lead" style="margin: 6px 0 0">+43 1 555 1234</p>
+              </div>
+            </div>
+            <div class="card reveal delay-1">
+              <form>
+                <label>
+                  <div style="font-weight: 600; margin-bottom: 6px">Full name</div>
+                  <input type="text" placeholder="Your name" />
+                </label>
+                <label>
+                  <div style="font-weight: 600; margin-bottom: 6px">Email address</div>
+                  <input type="email" placeholder="you@email.com" />
+                </label>
+                <label>
+                  <div style="font-weight: 600; margin-bottom: 6px">How can we help?</div>
+                  <textarea placeholder="Share a few details about your project."></textarea>
+                </label>
+                <button class="cta" type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="container">
+        © 2026 Institute for Democracy and Digital Society. All rights reserved.
+      </footer>
+    </div>
+  </body>
+</html>
