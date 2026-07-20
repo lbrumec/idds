@@ -110,18 +110,18 @@
         width: 46px;
         height: 46px;
         border-radius: 14px;
-        border: 2px solid var(--blue-900);
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #fff, #f1e4c8);
-        box-shadow: 0 10px 24px rgba(20, 47, 79, 0.18);
+        border: 2px solid var(--gold-600);
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #fff;
+        box-shadow: 0 10px 24px rgba(20, 47, 79, 0.28);
       }
 
-      .logo span {
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--gold-600);
-        letter-spacing: 0.08em;
+      .logo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
       }
 
       .nav-links {
@@ -169,24 +169,18 @@
         align-items: center;
       }
 
-      .eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 0.75rem;
-        color: var(--gold-600);
-        font-weight: 700;
-      }
-
       h1 {
         font-family: "Fraunces", serif;
         font-size: clamp(2.4rem, 2rem + 2vw, 3.6rem);
-        margin: 16px 0 20px;
+        margin: 0 0 20px;
         color: var(--blue-900);
       }
 
       .hero-title {
         font-family: "Manrope", system-ui, sans-serif;
+        font-size: clamp(1.3rem, 1.1rem + 1vw, 1.85rem);
         font-weight: 700;
+        line-height: 1.2;
         letter-spacing: 0.01em;
       }
 
@@ -194,21 +188,6 @@
         font-size: 1.05rem;
         color: var(--muted);
         line-height: 1.7;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin-top: 28px;
-      }
-
-      .ghost {
-        padding: 10px 18px;
-        border-radius: 999px;
-        border: 1px solid rgba(20, 47, 79, 0.2);
-        font-weight: 600;
-        color: var(--blue-900);
       }
 
       .hero-card {
@@ -275,48 +254,11 @@
         text-transform: uppercase;
       }
 
-      .team-card {
-        display: grid;
-        gap: 14px;
-      }
-
-      .avatar {
-        width: 84px;
-        height: 84px;
-        border-radius: 24px;
-        background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
-        color: #fff;
-        display: grid;
-        place-items: center;
-        font-weight: 700;
-        font-size: 1.2rem;
-        letter-spacing: 0.05em;
-      }
-
       .contact {
         display: grid;
         gap: 28px;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         align-items: center;
-      }
-
-      form {
-        display: grid;
-        gap: 16px;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        padding: 12px 14px;
-        border-radius: 12px;
-        border: 1px solid rgba(20, 47, 79, 0.2);
-        font-family: inherit;
-      }
-
-      textarea {
-        min-height: 120px;
-        resize: vertical;
       }
 
       footer {
@@ -380,8 +322,8 @@
       <header>
         <div class="container nav">
           <div class="brand">
-            <div class="logo" aria-label="Institute logo placeholder">
-              <span>ID</span>
+            <div class="logo">
+              <img src="Logo.jpeg" alt="Institute for Democracy and Digital Society logo" />
             </div>
             <div>
               <div style="font-size: 0.9rem; letter-spacing: 0.16em; text-transform: uppercase">
@@ -393,8 +335,6 @@
           <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
             <a class="cta" href="#contact">Work With Us</a>
           </nav>
         </div>
@@ -403,38 +343,36 @@
       <main class="container">
         <section id="home" class="hero">
           <div class="reveal">
-            <div class="eyebrow">Vienna • Evidence-driven policy</div>
-            <h1 class="hero-title">Building democratic resilience for the digital age.</h1>
+            <h1 class="hero-title">ADVANCING RESEARCH AND PUBLIC DIALOGUE ON DEMOCRACY IN THE DIGITAL AGE.</h1>
             <p class="lead">
-              The Institute for Democracy and Digital Society advances research, training, and civic innovation at
-              the intersection of governance, technology, and human rights. We partner with public institutions,
-              civil society, and industry to shape inclusive digital futures.
+              The Institute for Democracy and Digital Society explores how digital technologies shape democratic
+              systems, public discourse, and governance. We bring together research, policy, and public engagement to
+              address the challenges and opportunities of the digital age, with a particular focus on AI and digital
+              transformation.
             </p>
-            <div class="hero-actions">
-              <a class="cta" href="#about">Explore Our Work</a>
-              <a class="ghost" href="#contact">Request a Briefing</a>
-            </div>
           </div>
           <div class="hero-card reveal delay-1">
-            <div class="pill">2026 priorities</div>
+            <div class="pill">Research Areas</div>
             <div class="stat">
               <div>
-                <strong>Digital Rights Lab</strong>
-                <div class="lead" style="font-size: 0.9rem">Algorithmic accountability &amp; civic audits.</div>
+                <strong>Digital Democracy</strong>
+                <div class="lead" style="font-size: 0.9rem">Politics, media, and civic life in the digital age.</div>
               </div>
               <h3>01</h3>
             </div>
             <div class="stat">
               <div>
-                <strong>Democracy Observatory</strong>
-                <div class="lead" style="font-size: 0.9rem">Monitoring participation in digital spaces.</div>
+                <strong>Society &amp; Culture</strong>
+                <div class="lead" style="font-size: 0.9rem">
+                  Sociological and cultural impacts of AI and technology.
+                </div>
               </div>
               <h3>02</h3>
             </div>
             <div class="stat">
               <div>
-                <strong>Public Innovation Studio</strong>
-                <div class="lead" style="font-size: 0.9rem">Co-designing tools for civic trust.</div>
+                <strong>Media &amp; Civic Innovation</strong>
+                <div class="lead" style="font-size: 0.9rem">Building tools for inclusive participation and trust.</div>
               </div>
               <h3>03</h3>
             </div>
@@ -444,68 +382,36 @@
         <section id="about">
           <div class="reveal">
             <div class="pill">About</div>
-            <h2 class="section-title">A research institute grounded in democracy, guided by digital realities.</h2>
+            <h2 class="section-title">
+              A research institute grounded in democracy, informed by digital and societal change.
+            </h2>
             <p class="lead">
-              We conduct applied research, advise policymakers, and build capacity for democratic institutions facing
-              rapid technological change. Our work spans digital governance, platform accountability, AI ethics, and
-              participatory policy design.
+              We conduct applied research, advise policymakers, and develop tools for democratic institutions
+              navigating the transformations of AI, media, and everyday digital life. Our work spans digital
+              governance, platform accountability, AI ethics, sociocultural impacts, and participatory policy design.
             </p>
           </div>
           <div class="grid reveal delay-1" style="margin-top: 28px">
             <div class="card">
               <h3>Research &amp; Foresight</h3>
               <p class="lead">
-                Scenario planning, impact evaluations, and data-driven insights to anticipate emerging challenges.
+                Mapping political, social, and cultural dynamics; scenario planning; and data-driven insights to
+                anticipate emerging challenges in digital society.
               </p>
             </div>
             <div class="card">
               <h3>Policy Design</h3>
               <p class="lead">
-                Translating evidence into governance frameworks that uphold rights, transparency, and accountability.
+                Translating evidence into frameworks that safeguard rights, transparency, and accountability in
+                politics, media, and digital platforms.
               </p>
             </div>
             <div class="card">
               <h3>Civic Capacity</h3>
               <p class="lead">
-                Trainings, toolkits, and public engagement initiatives that strengthen democratic participation.
+                Training programs, toolkits, and public engagement initiatives that empower inclusive participation
+                and strengthen democratic life in the digital era.
               </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="team">
-          <div class="reveal">
-            <div class="pill">Team</div>
-            <h2 class="section-title">Multidisciplinary leadership at the heart of every program.</h2>
-            <p class="lead">
-              Our team blends policy expertise, data science, and community practice to deliver measurable outcomes
-              for partners across Europe and beyond.
-            </p>
-          </div>
-          <div class="grid reveal delay-1" style="margin-top: 28px">
-            <div class="card team-card">
-              <div class="avatar">AK</div>
-              <div>
-                <strong>Dr. Ana Kovacs</strong>
-                <div class="lead" style="font-size: 0.9rem">Executive Director</div>
-              </div>
-              <p class="lead">Democratic governance, institutional trust, and public sector innovation.</p>
-            </div>
-            <div class="card team-card">
-              <div class="avatar">MS</div>
-              <div>
-                <strong>Marcus Stein</strong>
-                <div class="lead" style="font-size: 0.9rem">Head of Research</div>
-              </div>
-              <p class="lead">Algorithmic accountability, human rights, and AI policy.</p>
-            </div>
-            <div class="card team-card">
-              <div class="avatar">IB</div>
-              <div>
-                <strong>Isabella Bern</strong>
-                <div class="lead" style="font-size: 0.9rem">Civic Innovation Lead</div>
-              </div>
-              <p class="lead">Participatory design, civic tech, and digital inclusion.</p>
             </div>
           </div>
         </section>
@@ -520,28 +426,8 @@
                 speaking engagements.
               </p>
               <div class="card" style="margin-top: 24px">
-                <strong>Institute for Democracy and Digital Society</strong>
-                <p class="lead" style="margin: 10px 0 0">Schottenring 16, 1010 Vienna</p>
-                <p class="lead" style="margin: 6px 0 0">contact@idds.institute</p>
-                <p class="lead" style="margin: 6px 0 0">+43 1 555 1234</p>
+                <p class="lead" style="margin: 0">idds.projects@gmail.com</p>
               </div>
-            </div>
-            <div class="card reveal delay-1">
-              <form>
-                <label>
-                  <div style="font-weight: 600; margin-bottom: 6px">Full name</div>
-                  <input type="text" placeholder="Your name" />
-                </label>
-                <label>
-                  <div style="font-weight: 600; margin-bottom: 6px">Email address</div>
-                  <input type="email" placeholder="you@email.com" />
-                </label>
-                <label>
-                  <div style="font-weight: 600; margin-bottom: 6px">How can we help?</div>
-                  <textarea placeholder="Share a few details about your project."></textarea>
-                </label>
-                <button class="cta" type="submit">Send Message</button>
-              </form>
             </div>
           </div>
         </section>
